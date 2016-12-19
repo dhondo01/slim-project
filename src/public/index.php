@@ -3,6 +3,9 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 require '../vendor/autoload.php';
+spl_autoload_register(function ($classname) {
+	require ("../classes/" . $classname . ".php");
+});
 
 $config['displayErrorDetails'] = true;
 $config['addContentLengthHeader'] = false;
