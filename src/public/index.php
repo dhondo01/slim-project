@@ -4,7 +4,16 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 require '../vendor/autoload.php';
 
-$app = new \Slim\App;
+$config['displayErrorDetails'] = true;
+$config['addContentLengthHeader'] = false;
+
+$config['db']['host'] = "localhost";
+$config['db']['user'] = "user";
+$config['db']['pass'] = "password";
+$config['db']['dbname'] = "exampleapp";
+
+$app = new \Slim\App(["settings" => $config]);
+
 $app->get('/hello/{name}', function (Request $request, Response $response) {
 	$name = $request->getAttribute('name');
 	$myName = ucfirst($name);
@@ -12,4 +21,5 @@ $app->get('/hello/{name}', function (Request $request, Response $response) {
 
 	return $response;
 	});
+
 $app->run();
