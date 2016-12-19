@@ -7,7 +7,10 @@ php -S localhost:8080
 `
 
 ### Project initial structure
+
+<!-- 
 .
 ├── project
 │   └── src
-│       └── public
+│       └── public 
+-->
