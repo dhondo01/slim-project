@@ -16,6 +16,7 @@ $config['db']['pass'] = "password";
 $config['db']['dbname'] = "exampleapp";
 
 $app = new \Slim\App(["settings" => $config]);
+$container = $app->getContainer();
 
 $app->get('/hello/{name}', function (Request $request, Response $response) {
 	$name = $request->getAttribute('name');
